@@ -58,6 +58,7 @@ export default {
   }
 
 }
+// 绑定数据对象以及校验
 // element表单是有固定格式的 表单是为了采集和校验数据
 // el-form 是表单的容器 如果要放置表单 需要放置在el-form里面
 // 如果要放置一个input组件到表单里 需要放置el-form-item里面
