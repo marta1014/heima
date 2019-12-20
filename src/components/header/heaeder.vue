@@ -7,7 +7,7 @@
       </el-col>
       <el-col :span="12" class="right">
         <el-row type="flex" justify="end" align="middle">
-          <img :src="userInfo.photo" alt />
+          <img :src="userInfo.photo ? userInfo.photo : defaultImg" alt />
           <!-- img固定地址的话 代码会被编译成base64字符串 此时可以预览 -->
           <!-- 若是动态变量 相对地址无法显示 -->
           <!-- 如果想用 需把图片转换成一个变量 -->
@@ -37,7 +37,9 @@ export default {
         name: '',
         photo: ''
       },
+      // defaultImg: require('../../assets/img/avatar.jpg')
       defaultImg: require('../../assets/img/avatar.jpg')
+      // 需要一个默认值 在没有头像的情况下给一个图片
     }
   },
   methods: {
