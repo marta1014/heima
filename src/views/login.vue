@@ -35,12 +35,13 @@ export default {
         mobile: [{ required: true, message: '请输入手机号' }, { pattern: /^1[3456789]\d{9}$/, message: '格式不正确' }],
         code: [{ required: true, message: '请输入验证码' }, { pattern: /^\d{6}$/, message: '格式为6位数字' }],
         check: [{ validator: function (rules, value, callback) {
-          if (value) { // 勾选
-            callback()// 当前校验通过
-          } else {
-            callback(new Error('请确认勾选条款'))
-            // new Error 实例化了一个错误对象并传出 里面输入提示msg
-          }
+          // if (value) { // 勾选
+          //   callback()// 当前校验通过
+          // } else {
+          //   callback(new Error('请确认勾选条款'))
+          //   // new Error 实例化了一个错误对象并传出 里面输入提示msg
+          // }
+          value ? callback() : callback(new Error('您必须同意无条件<el'))
         } }]
       }
     }
@@ -49,9 +50,27 @@ export default {
     sbmLogin () {
       // 手动校验
       // validate 对整个表单进行校验的方法 方法中传入一个函数 函数内两个参数（是否成功/未成功的字段） 若不传入回调函数，则会返回一个 promise
-      this.$refs.myForm.validate(function (isOK) {
+      this.$refs.myForm.validate(isOK => {
         if (isOK) {
           // 校验通过 => 发送请求
+          // this.$http.post('/authorizations', this.loginForm).then(res => {
+          //   console.log(res)
+          // })
+          this.$http.post('/authorizations', this.loginForm).then(result => { // 携带参数发送请求
+            console.log(this)
+            this.$message({// ele提供的消息提示
+              message: '恭喜你，验证成功',
+              type: 'success'
+            })
+            // 把响应结果 保存在本地 存在localstorage 是保存的data中的token令牌
+            window.localStorage.setItem('user-token', result.data.data.token)
+            this.$router.push('/home')// 编程式导航
+          }).catch(res => {
+            this.$message({
+              type: 'warning',
+              message: '手机号或者验证码错误!'
+            })
+          })
         }
       })
     }
