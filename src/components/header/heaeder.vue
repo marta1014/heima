@@ -64,7 +64,7 @@ export default {
       //   Authorization: `Bearer ${token}`//给headers属性注入token
       // }
     }).then(res => {
-      console.log(res, res.data.data)//  请求回来的数据信息 给它放到定义好的userInfo里 插值渲染至页面
+      // console.log(res, res.data)//  请求回来的数据信息 给它放到定义好的userInfo里 插值渲染至页面
       this.userInfo = res.data
     })
   }
@@ -93,7 +93,7 @@ export default {
   .right {
     margin-top: 14px;
     img {
-      width: 40px;
+      width: 20px;
       border-radius: 50%;
       margin-right: 10px;
     }

@@ -1,5 +1,5 @@
 <template>
-   <el-carousel :interval="6000" arrow="always" height="90vh">
+   <el-carousel :interval="6000" arrow="always" height="100vh">
     <el-carousel-item v-for="item in list" :key="item">
       <img :src="item" alt="">
     </el-carousel-item>

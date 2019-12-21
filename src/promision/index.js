@@ -7,7 +7,7 @@ router.beforeEach(function (to, from, next) {
   //   console.log(to)
   //   next()
   if (to.path.startsWith('/home')) {
-    // 此处用到了（检索字符串是否以该内容开头）的方法 与其相反的是endwith方法
+    // 此处用到了（检索字符串是否以该内容开头）的方法 与其相反的是endswith方法
     let token = window.localStorage.getItem('user-token')
     if (token) {
       next()
@@ -16,6 +16,9 @@ router.beforeEach(function (to, from, next) {
     }
   } else {
     next()
+  }
+  if (to.path.endsWith('/login') || to.path === '/') {
+    window.localStorage.removeItem('user-token')
   }
 })
 // https://www.cnblogs.com/WQLong/p/8135553.html

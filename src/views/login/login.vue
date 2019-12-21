@@ -1,7 +1,7 @@
 <template>
 <div class="login">
     <el-card class="login-card">
-        <div class="title"><img src="../assets/img/logo_index.png" alt=""></div>
+        <div class="title"><img src="../../assets/img/logo_index.png" alt=""></div>
         <el-form :model="loginForm" :rules="rules" ref="myForm">
         <el-form-item prop="mobile">
             <el-input placeholder="请输入号码" v-model="loginForm.mobile"></el-input>
@@ -57,7 +57,7 @@ export default {
           //   console.log(res)
           // })
           this.$http.post('/authorizations', this.loginForm).then(result => { // 携带参数发送请求
-            console.log(this)
+            // console.log(this)
             this.$message({// ele提供的消息提示
               message: '恭喜你，验证成功',
               type: 'success'
@@ -107,7 +107,7 @@ export default {
 
 <style lang='less' scope>
 .login {
-background-image: url('../assets/img/background.jpg');
+background-image: url('../../assets/img/background.jpg');
 background-size: cover;
 height:100vh;// 把当前可视区域分成100份
 display: flex;
