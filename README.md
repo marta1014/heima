@@ -52,3 +52,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 >}
 >然后就可以main.js引入该js
 >动态变量图无法显示  如果想要把一个相对地址的图设置给一个变量需要先把其转换成一个变量require(相对地址)实现转换
+>路由导航守卫 钩子函数
+>axios拦截器

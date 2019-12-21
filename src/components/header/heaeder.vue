@@ -54,13 +54,15 @@ export default {
     }
   },
   created () {
-    let token = localStorage.getItem('user-token')// 获取缓存用户令牌
+    // 此处进行的就是在发请求时 获取到token 然后给header属性携带token
+    // 而我们对axios进行统一封装  此处就可以省略
+    // let token = localStorage.getItem('user-token')// 获取缓存用户令牌
     this.$http({// 发送请求 获取用户信息 携带令牌
-      url: '/user/profile',
+      url: '/user/profile'
       // type: 'get', // 默认是get类型 所以可以不写
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
+      // headers: {
+      //   Authorization: `Bearer ${token}`//给headers属性注入token
+      // }
     }).then(res => {
       console.log(res, res.data.data)//  请求回来的数据信息 给它放到定义好的userInfo里 插值渲染至页面
       this.userInfo = res.data.data
