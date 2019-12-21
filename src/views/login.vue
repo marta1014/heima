@@ -63,14 +63,15 @@ export default {
               type: 'success'
             })
             // 把响应结果 保存在本地 存在localstorage 是保存的data中的token令牌
-            window.localStorage.setItem('user-token', result.data.data.token)
+            window.localStorage.setItem('user-token', result.data.token)
             this.$router.push('/home')// 编程式导航
-          }).catch(res => {
-            this.$message({
-              type: 'warning',
-              message: '手机号或者验证码错误!'
-            })
           })
+          // .catch(res => {
+          //   this.$message({
+          //     type: 'warning',
+          //     message: '手机号或者验证码错误!'
+          //   })
+          // })
         }
       })
     }

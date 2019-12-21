@@ -65,7 +65,7 @@ export default {
       // }
     }).then(res => {
       console.log(res, res.data.data)//  请求回来的数据信息 给它放到定义好的userInfo里 插值渲染至页面
-      this.userInfo = res.data.data
+      this.userInfo = res.data
     })
   }
 }
