@@ -6,6 +6,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import '../src/style/index.less' // 引入初始化样式
 import axios from 'axios'
 import component from './components'
+import './promision'// 引入前置路由守卫
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 Vue.use(component)
