@@ -19,7 +19,7 @@
             </span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item command="info">周思涵</el-dropdown-item>
-              <el-dropdown-item command="adds">git地址</el-dropdown-item>
+              <el-dropdown-item command="adds">toEleUI</el-dropdown-item>
               <el-dropdown-item command="leave">退出</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
@@ -46,7 +46,7 @@ export default {
     commands (command) {
       if (command === 'info') {
       } else if (command === 'adds') {
-        window.location.href = 'https://baidu.com'
+        window.location.href = 'https://element.eleme.cn/2.0/#/zh-CN/component/installation'
       } else {
         window.localStorage.removeItem('user-token') // 删除令牌 token
         this.$router.push('/login') // 回到登录页
@@ -73,7 +73,7 @@ export default {
 
 <style lang='less' scoped>
 .header {
-  height: 64px;
+  height: 60px;
   text-shadow: 1px 1px 2px #008c8c;
   background-color: #eeeeee;
   color:#999;

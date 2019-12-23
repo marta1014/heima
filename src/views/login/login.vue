@@ -26,9 +26,9 @@ export default {
   data () {
     return {
       loginForm: {
-        mobile: '',
-        code: '',
-        check: ''
+        mobile: '13922222222',
+        code: '246810',
+        check: true
       },
       // 验证规则对象:{ key(字段名)：value(规则=>[])}
       rules: {

@@ -14,7 +14,10 @@ const routes = [
   {
     path: '/home',
     component: Home,
-    children: [{ path: '', component: homeS }, { path: '/home/comment', component: () => import('../views/comment') }]
+    children: [{ path: '', component: homeS },
+      { path: '/home/comment', component: () => import('../views/comment') },
+      { path: '/home/material', component: () => import('../material/index.vue') }
+    ]
   },
   {
     path: '/login',

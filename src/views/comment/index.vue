@@ -12,7 +12,7 @@
           <el-table-column prop="fans_comment_count" label="粉丝评论数"></el-table-column>
           <el-table-column  label="操作">
               <template slot-scope="obj">
-                <!-- {{obj.row}} 通过 Scoped slot 可以获取到 row, column, $index 和 store（table 内部的状态管理）的数据-->
+                <!-- {{obj.row}}{{obj.row.comment_status}} 通过 Scoped slot 可以获取到 row, column, $index 和 store（table 内部的状态管理）的数据-->
                   <el-button type="text" size="small">修改</el-button>
               <!-- 需要根据状态进行操作是否关闭 -->
               <el-button type="text" size="small" @click="openOrClose(obj.row)">{{obj.row.comment_status ? '关闭' : '打开'}}评论</el-button>
@@ -38,6 +38,7 @@ export default {
         params: { response_type: 'comment' }
       }).then(res => {
         this.list = res.data.results
+        console.log(res)
       })
     },
     // 格式化布尔值
@@ -47,7 +48,7 @@ export default {
       return cellValue ? '正常' : '关闭'
     },
     openOrClose (row) {
-      let mes = row.comment_status ? '关闭' : '打开'
+      let mes = row.comment_status ? '打开' : '关闭'
       this.$confirm(`您是否确定要${mes}评论吗`, '提示').then(() => {
         // 调用接口
         this.$http({
@@ -57,6 +58,7 @@ export default {
           data: { allow_comment: !row.comment_status } // 因为当前如果是打开 ,就要关闭 如果是关闭 就要打开
         }).then(result => {
           //  表示执行成功
+          debugger
           this.getComment() // 重新拉取评论管理数据
         })
       })

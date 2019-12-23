@@ -1,28 +1,29 @@
 <template>
-   <el-carousel :interval="6000" arrow="always" height="100vh">
+  <!-- <el-carousel :interval="6000" arrow="always" height="100vh">
     <el-carousel-item v-for="item in list" :key="item">
       <img :src="item" alt="">
     </el-carousel-item>
-  </el-carousel>
+  </el-carousel>-->
+  <el-row class="img">
+    <img :src="homeImg" alt />
+  </el-row>
 </template>
 
 <script>
 export default {
   data () {
     return {
-      list: ['http://pic.netbian.com/uploads/allimg/170415/192100-14922552602b64.jpg']
+      list: [''],
+      homeImg: require('../../assets/img/5aa88fbbbc7c5.jpg')// 动态绑定图片
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
-
-.el-carousel__item:nth-child(2n) {
-  background-color: #99a9bf;
-}
-
-.el-carousel__item:nth-child(2n + 1) {
-  background-color: #d3dce6;
+.img{
+  img {
+    width: 100%;
+  }
 }
 </style>
