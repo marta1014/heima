@@ -16,7 +16,9 @@ const routes = [
     component: Home,
     children: [{ path: '', component: homeS },
       { path: '/home/comment', component: () => import('../views/comment') },
-      { path: '/home/material', component: () => import('../material/index.vue') }
+      { path: '/home/publish', component: () => import('../views/publish/index.vue') },
+      { path: '/home/material', component: () => import('../material/index.vue') },
+      { path: '/home/articles', component: () => import('../views/articles/index.vue') }
     ]
   },
   {
